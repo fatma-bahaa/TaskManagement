@@ -1,0 +1,2 @@
+GET http://localhost:8081/task-management/2/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXRtYVVzZXIiLCJleHAiOjE3NDg1NzY2NjYsImlhdCI6MTc0ODU0MDY2Nn0.yEEMnaLwO-w34XB5GZp_xb74TUGR220qEySAmbTiUHQ
