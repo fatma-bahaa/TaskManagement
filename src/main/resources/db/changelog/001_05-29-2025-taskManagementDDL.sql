@@ -8,10 +8,10 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT users_pk PRIMARY KEY (id)
     );
 
-CREATE SEQUENCE IF NOT EXISTS task_management_id_seq INCREMENT 1 NO MINVALUE NO MAXVALUE START 1 CACHE 1;
+CREATE SEQUENCE IF NOT EXISTS task_id_seq INCREMENT 1 NO MINVALUE NO MAXVALUE START 1 CACHE 1;
 
-CREATE TABLE IF NOT EXISTS task_management (
-    id                  BIGINT                      NOT NULL DEFAULT nextval('task_management_id_seq' :: REGCLASS),
+CREATE TABLE IF NOT EXISTS task (
+    id                  BIGINT                      NOT NULL DEFAULT nextval('task_id_seq' :: REGCLASS),
     title               VARCHAR(250)                NOT NULL,
     description         VARCHAR(500)                ,
     status              VARCHAR(50)                 ,
@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS task_management (
     created_by          BIGINT                      NOT NULL,
     due_date           TIMESTAMP                    ,
     CONSTRAINT created_by_users_id_fk FOREIGN KEY (created_by) REFERENCES users (id),
-    CONSTRAINT task_management_pk PRIMARY KEY (id)
+    CONSTRAINT task_pk PRIMARY KEY (id)
     );

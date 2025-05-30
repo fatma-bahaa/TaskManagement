@@ -8,7 +8,7 @@ This section will help you understand the project structure and how to interact 
 
 
 ### Key Controllers
-* TaskManagementController: Handles all operations related to tasks (e.g., creating, reading, updating, deleting tasks).
+* TaskController: Handles all operations related to tasks (e.g., creating, reading, updating, deleting tasks).
 
 
 * AuthController: Manages user authentication and authorization flows.

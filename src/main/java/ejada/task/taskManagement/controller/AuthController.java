@@ -1,10 +1,13 @@
 package ejada.task.taskManagement.controller;
 
 import ejada.task.taskManagement.controller.dtos.AuthRequest;
+import ejada.task.taskManagement.controller.dtos.AuthResponse;
 import ejada.task.taskManagement.domain.user.User;
 import ejada.task.taskManagement.service.JwtUtil;
 import ejada.task.taskManagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,8 +29,9 @@ public class AuthController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @CrossOrigin
     @PostMapping("/authenticate")
-    public String createAuthenticationToken(@RequestBody AuthRequest authRequest) throws Exception {
+    public AuthResponse createAuthenticationToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
@@ -37,7 +41,9 @@ public class AuthController {
         }
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
-        return jwtUtil.generateToken(userDetails.getUsername());
+        return AuthResponse.builder()
+                .token(jwtUtil.generateToken(userDetails.getUsername()))
+                        .build();
     }
 
     @PostMapping("/register")

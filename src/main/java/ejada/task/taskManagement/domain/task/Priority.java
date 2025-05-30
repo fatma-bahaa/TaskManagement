@@ -1,4 +1,4 @@
-package ejada.task.taskManagement.domain.taskmanagement;
+package ejada.task.taskManagement.domain.task;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

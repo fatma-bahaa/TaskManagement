@@ -9,19 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskManagementDetailsResponseModel {
+public class CreatedTaskResponseModel {
 
     private Long id;
-
-    private String title;
-
-    private String description;
-
-    private String status;
-
-    private String priority;
-
-    private String createdBy ;
-
-    private String dueDate;
 }

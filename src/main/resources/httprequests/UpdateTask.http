@@ -1,0 +1,12 @@
+PATCH http://localhost:8081/task/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXRtYSIsImV4cCI6MTc0ODY1NDUzNywiaWF0IjoxNzQ4NjE4NTM3fQ.YxQGRcVVevGKFs9HnudMomPbaIwrlDgg7wFWn6MT0ds
+Content-Type: application/json
+
+{
+  "status": "COMPLETED",
+  "title": "task1",
+  "description": "task1 is X",
+  "priority": "HIGH",
+  "createdBy": "Fatma",
+  "dueDate": "2025-05-30T01:16:35.787897Z"
+}

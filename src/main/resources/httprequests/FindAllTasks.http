@@ -1,0 +1,2 @@
+GET http://localhost:8081/task?sort=id,asc&page=0&size=10&status=TO_DO
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXRtYSIsImV4cCI6MTc0ODY1NDUzNywiaWF0IjoxNzQ4NjE4NTM3fQ.YxQGRcVVevGKFs9HnudMomPbaIwrlDgg7wFWn6MT0ds

@@ -1,4 +1,4 @@
-package ejada.task.taskManagement.domain.taskmanagement;
+package ejada.task.taskManagement.domain.task;
 
 import ejada.task.taskManagement.domain.user.User;
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
-import static ejada.task.taskManagement.domain.taskmanagement.TaskManagement.TABLE_NAME;
+import static ejada.task.taskManagement.domain.task.Task.TABLE_NAME;
 
 @Data
 @AllArgsConstructor
@@ -16,9 +16,9 @@ import static ejada.task.taskManagement.domain.taskmanagement.TaskManagement.TAB
 @Builder
 @Entity
 @Table(name=TABLE_NAME)
-public class TaskManagement {
+public class Task {
 
-	protected static final String TABLE_NAME = "task_management";
+	protected static final String TABLE_NAME = "task";
 	protected static final String CREATED_BY_COLUMN_NAME = "created_by";
 	protected static final String TITLE_COLUMN_NAME = "title";
 	protected static final String DUE_DATE_COLUMN_NAME = "due_date";

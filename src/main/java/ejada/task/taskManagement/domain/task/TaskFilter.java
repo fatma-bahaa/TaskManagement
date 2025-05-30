@@ -1,4 +1,4 @@
-package ejada.task.taskManagement.domain.taskmanagement;
+package ejada.task.taskManagement.domain.task;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class TaskManagementFilter {
+public class TaskFilter {
 
     private Status status;
     private Priority priority;

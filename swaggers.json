@@ -11,19 +11,19 @@
     }
   ],
   "paths":{
-    "/task-management":{
+    "/task":{
       "get":{
         "tags":[
-          "task-management-controller"
+          "task-controller"
         ],
-        "operationId":"findAllTaskManagements",
+        "operationId":"findAllTasks",
         "parameters":[
           {
-            "name":"taskManagementFilter",
+            "name":"taskFilter",
             "in":"query",
             "required":true,
             "schema":{
-              "$ref":"#/components/schemas/TaskManagementFilter"
+              "$ref":"#/components/schemas/TaskFilter"
             }
           },
           {
@@ -41,7 +41,7 @@
             "content":{
               "application/json":{
                 "schema":{
-                  "$ref":"#/components/schemas/PageTaskManagementDetailsResponseModel"
+                  "$ref":"#/components/schemas/PageTaskDetailsResponseModel"
                 }
               }
             }
@@ -50,14 +50,14 @@
       },
       "post":{
         "tags":[
-          "task-management-controller"
+          "task-controller"
         ],
-        "operationId":"createTaskManagement",
+        "operationId":"createTask",
         "requestBody":{
           "content":{
             "application/json":{
               "schema":{
-                "$ref":"#/components/schemas/CreateOrUpdateTaskManagementRequestDTO"
+                "$ref":"#/components/schemas/CreateOrUpdateTaskRequestDTO"
               }
             }
           },
@@ -69,7 +69,7 @@
             "content":{
               "*/*":{
                 "schema":{
-                  "$ref":"#/components/schemas/CreatedTaskManagementResponseModel"
+                  "$ref":"#/components/schemas/CreatedTaskResponseModel"
                 }
               }
             }
@@ -122,7 +122,7 @@
             "content":{
               "*/*":{
                 "schema":{
-                  "type":"string"
+                  "$ref":"#/components/schemas/AuthResponse"
                 }
               }
             }
@@ -130,15 +130,15 @@
         }
       }
     },
-    "/task-management/{taskManagementId}":{
+    "/task/{taskId}":{
       "delete":{
         "tags":[
-          "task-management-controller"
+          "task-controller"
         ],
-        "operationId":"deleteTaskManagementById",
+        "operationId":"deleteTaskById",
         "parameters":[
           {
-            "name":"taskManagementId",
+            "name":"taskId",
             "in":"path",
             "required":true,
             "schema":{
@@ -155,12 +155,12 @@
       },
       "patch":{
         "tags":[
-          "task-management-controller"
+          "task-controller"
         ],
-        "operationId":"updateTaskManagementById",
+        "operationId":"updateTaskById",
         "parameters":[
           {
-            "name":"taskManagementId",
+            "name":"taskId",
             "in":"path",
             "required":true,
             "schema":{
@@ -173,7 +173,7 @@
           "content":{
             "application/json":{
               "schema":{
-                "$ref":"#/components/schemas/CreateOrUpdateTaskManagementRequestDTO"
+                "$ref":"#/components/schemas/CreateOrUpdateTaskRequestDTO"
               }
             }
           },
@@ -186,15 +186,15 @@
         }
       }
     },
-    "/task-management/{taskManagementId}/details":{
+    "/task/{taskId}/details":{
       "get":{
         "tags":[
-          "task-management-controller"
+          "task-controller"
         ],
-        "operationId":"findTaskManagementById",
+        "operationId":"findTaskById",
         "parameters":[
           {
-            "name":"taskManagementId",
+            "name":"taskId",
             "in":"path",
             "required":true,
             "schema":{
@@ -209,7 +209,7 @@
             "content":{
               "application/json":{
                 "schema":{
-                  "$ref":"#/components/schemas/TaskManagementDetailsResponseModel"
+                  "$ref":"#/components/schemas/TaskDetailsResponseModel"
                 }
               }
             }
@@ -220,7 +220,7 @@
   },
   "components":{
     "schemas":{
-      "CreateOrUpdateTaskManagementRequestDTO":{
+      "CreateOrUpdateTaskRequestDTO":{
         "type":"object",
         "properties":{
           "title":{
@@ -253,7 +253,7 @@
           }
         }
       },
-      "CreatedTaskManagementResponseModel":{
+      "CreatedTaskResponseModel":{
         "type":"object",
         "properties":{
           "id":{
@@ -287,7 +287,15 @@
           }
         }
       },
-      "TaskManagementFilter":{
+      "AuthResponse":{
+        "type":"object",
+        "properties":{
+          "token":{
+            "type":"string"
+          }
+        }
+      },
+      "TaskFilter":{
         "type":"object",
         "properties":{
           "status":{
@@ -329,7 +337,7 @@
           }
         }
       },
-      "PageTaskManagementDetailsResponseModel":{
+      "PageTaskDetailsResponseModel":{
         "type":"object",
         "properties":{
           "totalElements":{
@@ -356,7 +364,7 @@
           "content":{
             "type":"array",
             "items":{
-              "$ref":"#/components/schemas/TaskManagementDetailsResponseModel"
+              "$ref":"#/components/schemas/TaskDetailsResponseModel"
             }
           },
           "number":{
@@ -415,7 +423,7 @@
           }
         }
       },
-      "TaskManagementDetailsResponseModel":{
+      "TaskDetailsResponseModel":{
         "type":"object",
         "properties":{
           "id":{

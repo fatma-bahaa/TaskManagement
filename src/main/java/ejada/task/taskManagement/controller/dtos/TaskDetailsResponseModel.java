@@ -1,7 +1,5 @@
 package ejada.task.taskManagement.controller.dtos;
 
-import ejada.task.taskManagement.domain.taskmanagement.Priority;
-import ejada.task.taskManagement.domain.taskmanagement.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,15 +9,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateOrUpdateTaskManagementRequestDTO {
+public class TaskDetailsResponseModel {
+
+    private Long id;
 
     private String title;
 
     private String description;
 
-    private Status status;
+    private String status;
 
-    private Priority priority;
+    private String priority;
 
     private String createdBy ;
 
